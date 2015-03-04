@@ -164,6 +164,8 @@ public class MainActivity3 extends Activity {
             case 2:
                 fragment = new Settings();
                 break;
+            case 3:
+                fragment = new SqliteTest();
             default:
                 break;
         }
