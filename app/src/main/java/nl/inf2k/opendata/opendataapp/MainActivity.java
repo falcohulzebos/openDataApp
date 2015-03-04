@@ -9,7 +9,8 @@ import android.view.Window;
 
 
 public class MainActivity extends ActionBarActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 5000;
+
+        private final int SPLASH_DISPLAY_LENGTH = 5000;
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -22,7 +23,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(MainActivity.this, MainActivity2.class);
+                Intent mainIntent = new Intent(MainActivity.this, MainActivity3.class);
                 MainActivity.this.startActivity(mainIntent);
                 MainActivity.this.finish();
             }
