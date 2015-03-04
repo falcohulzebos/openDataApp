@@ -1,6 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="nl.inf2k.opendata.opendataapp.Home">
+    android:layout_height="match_parent" tools:context="nl.inf2k.opendata.opendataapp.Home"
+    android:background="#efebdc">
 
 
     <ImageButton
@@ -19,6 +20,18 @@
         android:layout_alignParentEnd="true"
         android:layout_gravity="center_horizontal|top" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="327dp"
+        android:id="@+id/groteFoto"
+        android:contentDescription="@string/Foto"
+        android:src="@drawable/rijksmuseum"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal|top" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -31,18 +44,6 @@
         android:layout_gravity="center"
         android:autoText="false"
         android:textAlignment="center" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/groteFoto"
-        android:contentDescription="@string/Foto"
-        android:src="@drawable/rijksmuseum"
-        android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="center" />
 
 
 </FrameLayout>

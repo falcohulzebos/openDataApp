@@ -59,11 +59,12 @@ public class MainActivity3 extends Activity {
         // adding nav drawer items to array
         // Home
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        // Find People
+        // Search
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-        // Photos
+        // Settings
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-
+        //SQLlite Test
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(2, -1)));
 
         // Recycle the typed array
         navMenuIcons.recycle();
@@ -149,7 +150,7 @@ public class MainActivity3 extends Activity {
     }
 
     /**
-     * Diplaying fragment view for selected nav drawer list item
+     * Displaying fragment view for selected nav drawer list item
      * */
     private void displayView(int position) {
         // update the main content by replacing fragments
