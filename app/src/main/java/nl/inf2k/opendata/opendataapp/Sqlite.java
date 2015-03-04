@@ -1,12 +1,16 @@
 package nl.inf2k.opendata.opendataapp;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+import java.util.Random;
 
 
 /**
@@ -30,6 +34,7 @@ public class Sqlite extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     private CommentsDataSource datasource;
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -58,6 +63,8 @@ public class Sqlite extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
 
 
@@ -68,6 +75,7 @@ public class Sqlite extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_sqlite, container, false);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -75,6 +83,7 @@ public class Sqlite extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+
     }
 
     @Override
@@ -86,6 +95,8 @@ public class Sqlite extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+        datasource = new CommentsDataSource(activity);
+        datasource.open();
     }
 
     @Override
@@ -108,5 +119,46 @@ public class Sqlite extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+
+    // Will be called via the onClick attribute
+    // of the buttons in main.xml
+
+class sqliteClass extends ListActivity
+{
+    public void onClick(View view) {
+        @SuppressWarnings("unchecked")
+        ArrayAdapter<Comment> adapter = (ArrayAdapter<Comment>) getListAdapter();
+        Comment comment = null;
+        switch (view.getId()) {
+            case R.id.add:
+                String[] comments = new String[]{"Cool", "Very nice", "Hate it"};
+                int nextInt = new Random().nextInt(3);
+                // save the new comment to the database
+                comment = datasource.createComment(comments[nextInt]);
+                adapter.add(comment);
+                break;
+            case R.id.delete:
+                if (getListAdapter().getCount() > 0) {
+                    comment = (Comment) getListAdapter().getItem(0);
+                    datasource.deleteComment(comment);
+                    adapter.remove(comment);
+                }
+                break;
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        datasource.open();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        datasource.close();
+        super.onPause();
+    }
+}
 
 }
