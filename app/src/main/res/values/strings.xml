@@ -16,7 +16,6 @@
         <item>Home</item>
         <item>Search</item>
         <item>Settings</item>
-        <item>Sqlite</item>
     </string-array>
 
     <!-- Nav Drawer List Item Icons -->
@@ -25,7 +24,6 @@
         <item>@drawable/home</item>
         <item>@drawable/zoeken</item>
         <item>@drawable/instellingen</item>
-
     </array>
 
     <!-- Content Description -->

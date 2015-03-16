@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-public class MainActivity3 extends Activity {
+public class Homescreen_fragments extends Activity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -63,8 +63,7 @@ public class MainActivity3 extends Activity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         // Settings
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        //SQLlite Test
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(2, -1)));
+
 
         // Recycle the typed array
         navMenuIcons.recycle();
@@ -165,8 +164,6 @@ public class MainActivity3 extends Activity {
             case 2:
                 fragment = new Settings();
                 break;
-            case 3:
-                fragment = new Sqlite();
             default:
                 break;
         }
